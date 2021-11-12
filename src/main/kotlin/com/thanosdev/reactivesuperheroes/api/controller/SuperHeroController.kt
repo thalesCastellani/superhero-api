@@ -26,7 +26,7 @@ class SuperHeroController(
     @ResponseStatus(HttpStatus.CREATED)
     fun saveSuperHero(@RequestBody superHero: SuperHero): Mono<SuperHero> = superHeroRepository.save(superHero)
 
-    @PutMapping("{id}")
+/*    @PutMapping("{id}")
     fun updateSuperHero(
         @PathVariable(value = "id") id: String,
         @RequestBody superHero: SuperHero
@@ -41,7 +41,7 @@ class SuperHeroController(
             existingSuperHero.power(superHero.power))
             return superHeroRepository.save(existingSuperHero))
         })
-    }
+    }*/
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)

@@ -4,12 +4,16 @@ import com.thanosdev.reactivesuperheroes.api.entity.Sex
 import com.thanosdev.reactivesuperheroes.api.entity.SuperHero
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import reactor.core.publisher.Flux
 import reactor.test.StepVerifier
 
 @SpringBootTest
-class SuperHeroRepositoryTest(private val superHeroRepository: SuperHeroRepository) {
+class SuperHeroRepositoryTest(
+    @Autowired
+    private val superHeroRepository: SuperHeroRepository
+    ) {
 
     private val superHeroes: List<SuperHero> = listOf(
         SuperHero(
