@@ -10,10 +10,7 @@ import reactor.core.publisher.Flux
 import reactor.test.StepVerifier
 
 @SpringBootTest
-class SuperHeroRepositoryTest(
-    @Autowired
-    private val superHeroRepository: SuperHeroRepository
-    ) {
+class SuperHeroRepositoryTest(@Autowired private val superHeroRepository: SuperHeroRepository) {
 
     private val superHeroes: List<SuperHero> = listOf(
         SuperHero(

@@ -6,11 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Document
 @Document
 data class SuperHero (
     @Id
-    val id: String? = null,
-    val name: String? = null,
-    val codename: String? = null,
-    val age: Int? = null,
-    val homeLand: String? = null,
-    val sex: Sex? = null,
-    val power: String? = null
+    var id: String? = null,
+    var name: String? = null,
+    var codename: String? = null,
+    var age: Int? = null,
+    var homeLand: String? = null,
+    var sex: Sex? = null,
+    var power: String? = null
 )

@@ -10,10 +10,7 @@ import org.springframework.stereotype.Component
 import reactor.core.publisher.Flux
 
 @Component
-class SuperHeroInit(
-    @Autowired
-    private val superHeroRepository: SuperHeroRepository
-) : ApplicationRunner {
+class SuperHeroInit(@Autowired private val superHeroRepository: SuperHeroRepository) : ApplicationRunner {
 
     override fun run(args: ApplicationArguments?) {
         superHeroRepository.deleteAll()
@@ -42,9 +39,9 @@ class SuperHeroInit(
                     sex = Sex.MALE,
                     power = "Hypersonic scream"
                 )))
-            .flatMap(superHeroRepository::save)
+            .flatMap { superHeroRepository.save(it) }
             .then()
-            .doOnEach(System.out::println)
+            .doOnEach { println(it) }
             .block()
     }
 
