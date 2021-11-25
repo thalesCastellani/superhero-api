@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
+import org.springframework.web.util.UriComponentsBuilder
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
 import javax.validation.Valid
@@ -26,9 +27,13 @@ class SuperHeroController(@Autowired private val superHeroRepository: SuperHeroR
             .defaultIfEmpty(ResponseEntity(HttpStatus.NOT_FOUND))
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    fun saveSuperHero(@RequestBody @Valid superHeroForm: SuperHeroForm): Mono<SuperHero> =
-        superHeroRepository.save(superHeroForm.convertForm(superHeroForm))
+    @ResponseStatus
+    fun saveSuperHero(@RequestBody @Valid superHeroForm: SuperHeroForm, uriComponentsBuilder: UriComponentsBuilder): Mono<ResponseEntity<SuperHero>> {
+        val superHero = superHeroForm.convertForm(superHeroForm)
+        superHeroRepository.save(superHero)
+        val uri = uriComponentsBuilder.path("/superheroes/{id}").buildAndExpand(superHero.id).toUri()
+        return ResponseEntity.created(uri).body(Mono.just(superHero))
+    }
 
     @PutMapping("{id}")
     fun updateSuperHero(
