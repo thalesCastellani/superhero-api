@@ -1,5 +1,6 @@
 package com.thanosdev.reactivesuperheroes.api.dto
 
+import com.thanosdev.reactivesuperheroes.api.entity.Biography
 import com.thanosdev.reactivesuperheroes.api.entity.Sex
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull
@@ -20,5 +21,7 @@ data class SuperHeroForm(
     var sex: Sex?,
 
     @field:NotNull @field:NotEmpty
-    var power: String?
+    var power: String?,
+
+    var biography: Biography
 )
