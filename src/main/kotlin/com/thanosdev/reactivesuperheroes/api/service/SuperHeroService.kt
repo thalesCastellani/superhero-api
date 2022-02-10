@@ -1,3 +1,4 @@
+/*
 package com.thanosdev.reactivesuperheroes.api.service
 
 import com.thanosdev.reactivesuperheroes.api.entity.Biography
@@ -30,4 +31,4 @@ class SuperHeroService {
             }
     }
 
-}
+}*/

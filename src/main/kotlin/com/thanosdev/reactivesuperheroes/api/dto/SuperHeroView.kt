@@ -1,6 +1,5 @@
 package com.thanosdev.reactivesuperheroes.api.dto
 
-import com.thanosdev.reactivesuperheroes.api.entity.Biography
 import com.thanosdev.reactivesuperheroes.api.entity.Sex
 
 data class SuperHeroView(

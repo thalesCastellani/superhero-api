@@ -1,4 +1,4 @@
-package com.thanosdev.reactivesuperheroes.api.entity
+/*package com.thanosdev.reactivesuperheroes.api.entity
 
 data class Biography(
     val fullName: String,
@@ -8,4 +8,4 @@ data class Biography(
     val firstAppearance: String,
     val publisher: String,
     val alignment: String
-)
+)*/

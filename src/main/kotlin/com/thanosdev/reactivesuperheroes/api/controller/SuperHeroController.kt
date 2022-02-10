@@ -4,7 +4,6 @@ import com.thanosdev.reactivesuperheroes.api.dto.SuperHeroForm
 import com.thanosdev.reactivesuperheroes.api.dto.SuperHeroView
 import com.thanosdev.reactivesuperheroes.api.entity.SuperHero
 import com.thanosdev.reactivesuperheroes.api.repository.SuperHeroRepository
-import com.thanosdev.reactivesuperheroes.api.service.SuperHeroService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -19,7 +18,7 @@ import javax.validation.Valid
 @RequestMapping("/superheroes")
 class SuperHeroController(
     @Autowired private val superHeroRepository: SuperHeroRepository,
-    @Autowired private val superHeroService: SuperHeroService
+    //@Autowired private val superHeroService: SuperHeroService
     ) {
 
     @GetMapping
